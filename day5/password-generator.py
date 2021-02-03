@@ -32,27 +32,21 @@ print(f'Order not randomized: {password}')
 
 
 # Order randomized
+password_list = []
 password = ''
 
-total = num_letters + num_symbols + num_numbers
-counter_letters = 0
-counter_symbols = 0
-counter_numbers = 0
+for i in range(num_letters):
+    password_list.append(random.choice(letters))
 
-while total > 0:
-    rand = random.randint(0, 3)
-    total -= 1
+for i in range(num_symbols):
+    password_list.append(random.choice(symbols))
 
-    if rand == 0 and counter_letters < num_letters:
-        password += random.choice(letters)
-        counter_letters += 1
-    elif rand == 1 and counter_symbols < num_symbols:
-        password += random.choice(symbols)
-        counter_symbols += 1
-    elif rand == 2 and counter_numbers < num_numbers:
-        password += random.choice(numbers)
-        counter_numbers += 1
-    else:
-        total += 1
+for i in range(num_numbers):
+    password_list.append(random.choice(numbers))
+
+random.shuffle(password_list)
+
+for char in password_list:
+    password += char
 
 print(f'Order randomized: {password}')
