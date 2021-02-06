@@ -3,13 +3,10 @@
 # Project: Hangman
 
 
-# Step 5
-
 import random
 import os
 from hangman_art import stages, logo
 from hangman_words import word_list
-
 
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
